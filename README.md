@@ -12,6 +12,10 @@ To make using this script even more convenient, you can create an alias for it i
 
     alias ccpp="bash /path/to/your/script/compile_cpp.sh"
     Make sure to replace /path/to/your/script with the actual path to the script on your system.
+    
+    more on how to create aliases: 
+        windows(example 4): https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.utility/set-alias?view=powershell-7.3
+        Linux/Mac(3.1): https://phoenixnap.com/kb/linux-alias-command 
 
 USAGE
 To compile and run a C++ file, simply use the ccpp alias followed by the file name:
