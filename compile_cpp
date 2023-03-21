@@ -1,0 +1,29 @@
+#!/bin/bash
+
+function display_error_message {
+    echo "Compilation failed. Not executing the program."
+    echo "Please fix the errors and try again."
+}
+
+if [ "$#" -lt 1 ]; then
+    echo "Usage: $0 <input_file.cpp> [arg1] [arg2] ..."
+    exit 1
+fi
+
+input_file="$1"
+shift
+program_args="$@"
+clear && ls
+
+program_name="${input_file%.*}"
+echo "Program name is set to: $program_name"
+
+g++ -std=c++11 -Wall -Wextra "$input_file" -o "$program_name"
+
+# Check if the compilation was successful by checking the exit code ($?)
+if [ $? -eq 0 ]; then
+    echo "Compilation complete. Executing..."
+    ./"$program_name" $program_args
+else
+    display_error_message
+fi
